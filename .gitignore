@@ -1,0 +1,10 @@
+# Dotnet Compiler Output
+bin/
+obj/
+
+# Ionide
+.ionide/
+.fake/
+
+# Packed library
+*.nupkg

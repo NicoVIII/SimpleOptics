@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "SimpleOptics", "src\SimpleOptics.fsproj", "{77E80650-6E60-4928-A7E9-DC367FFB1A10}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "run", "run.fsproj", "{8240EC4C-96B0-4F77-BD4B-126D12B6AE4A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{77E80650-6E60-4928-A7E9-DC367FFB1A10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77E80650-6E60-4928-A7E9-DC367FFB1A10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77E80650-6E60-4928-A7E9-DC367FFB1A10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77E80650-6E60-4928-A7E9-DC367FFB1A10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8240EC4C-96B0-4F77-BD4B-126D12B6AE4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8240EC4C-96B0-4F77-BD4B-126D12B6AE4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8240EC4C-96B0-4F77-BD4B-126D12B6AE4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8240EC4C-96B0-4F77-BD4B-126D12B6AE4A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
