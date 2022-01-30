@@ -1,6 +1,6 @@
 # SimpleOptics
 
-[![Release](https://img.shields.io/nuget/v/NicoVIII.SimpleOptics?style=flat-square)](https://www.nuget.org/packages/NicoVIII.SimpleOptics/)
+[![Release](https://img.shields.io/nuget/v/NicoVIII.SimpleOptics?logo=nuget&style=flat-square)](https://www.nuget.org/packages/NicoVIII.SimpleOptics/)
 [![Last commit](https://img.shields.io/github/last-commit/NicoVIII/SimpleOptics?style=flat-square)](https://github.com/NicoVIII/SimpleOptics/commits/)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE.txt)
 
