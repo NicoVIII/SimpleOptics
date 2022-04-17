@@ -33,7 +33,8 @@ let main args =
                 Task.build ()
             }
         | []
-        | [ "test" ] ->
+        | [ "test" ]
+        | [ "tests" ] ->
             job {
                 Task.restore ()
                 Task.test ()
