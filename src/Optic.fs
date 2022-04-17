@@ -1,7 +1,5 @@
 ﻿namespace SimpleOptics
 
-open System
-
 [<RequireQualifiedAccess>]
 module Optic =
     let inline compose optic1 optic2 = optic1 >-> optic2
