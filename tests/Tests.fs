@@ -44,4 +44,22 @@ let tests =
 
                         readValue = Some value
                 ]
+
+            testList
+                "MapOptic Preset"
+                [
+                    test "empty get" {
+                        let result = Optic.get (MapOptic.find 0) (new Map<int, string>([]))
+                        Expect.isNone result "Get on an empty map should return None"
+                    }
+
+                    testProperty "set >> get"
+                    <| fun (value: string) ->
+                        let readValue =
+                            new Map<int, string>([])
+                            |> Optic.set (MapOptic.find 0) value
+                            |> Optic.get (MapOptic.find 0)
+
+                        readValue = Some value
+                ]
         ]
