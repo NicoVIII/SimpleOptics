@@ -3,7 +3,8 @@ open RunHelpers.Templates
 
 [<RequireQualifiedAccess>]
 module Config =
-    let project = $"./src/SimpleOptics.fsproj"
+    let project = "./src/SimpleOptics.fsproj"
+    let testProject = "./tests/SimpleOptics.UnitTests.fsproj"
     let packPath = "./pack"
 
 module Task =
@@ -15,7 +16,7 @@ module Task =
 
     let build () = DotNet.build Config.project Debug
 
-    let run () = DotNet.run Config.project
+    let test () = DotNet.run Config.testProject
 
     let pack version =
         DotNet.pack Config.packPath Config.project version
@@ -32,10 +33,10 @@ let main args =
                 Task.build ()
             }
         | []
-        | [ "run" ] ->
+        | [ "test" ] ->
             job {
                 Task.restore ()
-                Task.run ()
+                Task.test ()
             }
         | [ "pack"; version ] ->
             job {

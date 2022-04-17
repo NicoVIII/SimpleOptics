@@ -4,3 +4,8 @@ storage: none
 framework: auto-detect
 
 nuget FSharp.Core >= 6.0 lowest_matching: true, redirects: force
+
+# Testing
+nuget Expecto
+nuget FsCheck
+nuget Expecto.FsCheck

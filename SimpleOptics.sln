@@ -7,6 +7,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "SimpleOptics", "src\SimpleO
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "run", "run.fsproj", "{8240EC4C-96B0-4F77-BD4B-126D12B6AE4A}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "SimpleOptics.UnitTests", "tests\SimpleOptics.UnitTests.fsproj", "{A5DB3F52-62AA-4BF4-8A80-CE19DDDC145C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{8240EC4C-96B0-4F77-BD4B-126D12B6AE4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8240EC4C-96B0-4F77-BD4B-126D12B6AE4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8240EC4C-96B0-4F77-BD4B-126D12B6AE4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5DB3F52-62AA-4BF4-8A80-CE19DDDC145C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5DB3F52-62AA-4BF4-8A80-CE19DDDC145C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5DB3F52-62AA-4BF4-8A80-CE19DDDC145C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5DB3F52-62AA-4BF4-8A80-CE19DDDC145C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
