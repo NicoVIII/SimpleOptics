@@ -45,11 +45,6 @@ let main args =
                 Task.pack version
             }
         | _ ->
-            let msg =
-                [
-                    "Usage: dotnet run [<command>]"
-                    "Look up available commands in run.fs"
-                ]
-
-            Error(1, msg)
-    |> ProcessResult.wrapUp
+            Job.error [ "Usage: dotnet run [<command>]"
+                        "Look up available commands in run.fs" ]
+    |> Job.execute
