@@ -20,12 +20,15 @@
     <Compile Include="Optic.fs" />
     <Compile Include="Presets.fs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\README.md" Pack="true" PackagePath="/" />
+  </ItemGroup>
   <!-- Add source files to "fable" folder in Nuget package -->
   <ItemGroup>
     <Content Include="*.fsproj; **\*.fs; **\*.fsi" PackagePath="fable\" />
   </ItemGroup>
+
   <ItemGroup>
-    <None Include="..\README.md" Pack="true" PackagePath="/" />
+    <PackageReference Update="FSharp.Core" Version="6.0.0" />
   </ItemGroup>
-  <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>
