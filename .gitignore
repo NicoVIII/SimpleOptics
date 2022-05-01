@@ -2,6 +2,11 @@
 bin/
 obj/
 
+# Fable output
+*.fs.js
+*.fs.ts
+build/
+
 # Ionide
 .ionide/
 .fake/
