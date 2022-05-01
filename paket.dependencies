@@ -9,3 +9,5 @@ nuget FSharp.Core
 nuget Expecto
 nuget FsCheck
 nuget Expecto.FsCheck
+
+nuget Fable.Mocha

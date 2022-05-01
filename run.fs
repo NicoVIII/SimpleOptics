@@ -1,12 +1,12 @@
 open RunHelpers
 open RunHelpers.BasicShortcuts
 open RunHelpers.Templates
+open System.IO
 
 [<RequireQualifiedAccess>]
 module Config =
     let project = "./src/SimpleOptics.fsproj"
     let testProject = "./tests/SimpleOptics.UnitTests.fsproj"
-    let fableOutPath = "./build"
     let packPath = "./pack"
 
 module Task =
@@ -14,19 +14,43 @@ module Task =
         job {
             DotNet.toolRestore ()
             DotNet.restore Config.project
+            DotNet.restore Config.testProject
+        }
+
+    let femto () =
+        job {
+            dotnet [ "femto"
+                     "--resolve"
+                     Config.testProject ]
         }
 
     let build () =
         job {
             DotNet.build Config.project Debug
+            DotNet.build Config.testProject Debug
 
+            // Build stuff in fable
             dotnet [ "fable"
                      Config.project
                      "-o"
-                     Config.fableOutPath ]
+                     (Path.GetDirectoryName(Config.project) + "/dist") ]
+
+            dotnet [ "fable"
+                     Config.testProject
+                     "-e"
+                     ".test.js"
+                     "-o"
+                     (Path.GetDirectoryName(Config.testProject)
+                      + "/dist") ]
         }
 
-    let test () = DotNet.run Config.testProject
+    let test () =
+        job {
+            DotNet.run Config.testProject
+
+            // Run fable tests
+            pnpm [ "run"; "test" ]
+        }
 
     let pack version =
         DotNet.pack Config.packPath Config.project version
@@ -40,6 +64,7 @@ let main args =
         | [ "build" ] ->
             job {
                 Task.restore ()
+                Task.femto ()
                 Task.build ()
             }
         | []
@@ -47,6 +72,7 @@ let main args =
         | [ "tests" ] ->
             job {
                 Task.restore ()
+                Task.femto ()
                 Task.build ()
                 Task.test ()
             }

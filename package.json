@@ -1,0 +1,12 @@
+{
+  "name": "simpleoptics",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "test": "mocha tests/dist"
+  },
+  "devDependencies": {
+    "mocha": "^8.3.2"
+  }
+}

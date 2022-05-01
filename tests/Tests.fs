@@ -1,9 +1,18 @@
 module Tests
 
+#if FABLE_COMPILER
+open Fable.Mocha
+#else
 open Expecto
+#endif
 
 open SimpleOptics
 open SimpleOptics.Presets
+
+// Stub for fable for testProperty
+#if FABLE_COMPILER
+let testProperty (label: string) (fnc: 'a -> bool) = test $"[not functional] {label}" { () }
+#endif
 
 let tests =
     testList
@@ -61,5 +70,16 @@ let tests =
                             |> Optic.get (MapOptic.find 0)
 
                         readValue = Some value
+                ]
+
+            testList
+                "Optic compose"
+                [
+                    test "basic compose" {
+                        let constant = 5
+                        let optic = Optic.compose (ListOptic.index 0) (ListOptic.index 0)
+                        let result = Optic.get optic [ [ constant ] ]
+                        Expect.equal result (Some constant) "Composing optics should work"
+                    }
                 ]
         ]

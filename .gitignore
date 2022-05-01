@@ -5,7 +5,7 @@ obj/
 # Fable output
 *.fs.js
 *.fs.ts
-build/
+dist/
 
 # Ionide
 .ionide/
@@ -13,3 +13,7 @@ build/
 
 # Packed library
 *.nupkg
+
+# node ecosystem stuff
+node_modules/
+.pnpm-store/
