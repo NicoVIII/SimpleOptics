@@ -25,7 +25,7 @@
   </ItemGroup>
   <!-- Add source files to "fable" folder in Nuget package -->
   <ItemGroup>
-    <Content Include="*.fsproj; **\*.fs; **\*.fsi" PackagePath="fable\" />
+    <Content Include="*.fsproj; **\*.fs; **\*.fsi" PackagePath="fable/" />
   </ItemGroup>
 
   <ItemGroup>
