@@ -16,7 +16,7 @@ module Task =
         DotNet.restore Config.testProject
     }
 
-    let femto () = job { dotnet [ "femto"; "--resolve"; Config.testProject ] }
+    let femto () = job { dotnet [ "femto"; "--validate"; Config.testProject ] }
 
     let build () = job {
         DotNet.build Config.project Debug
