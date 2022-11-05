@@ -8,22 +8,22 @@
         "paket"
       ]
     },
-    "fantomas-tool": {
-      "version": "4.7.8",
-      "commands": [
-        "fantomas"
-      ]
-    },
     "fable": {
-      "version": "3.7.10",
+      "version": "3.7.20",
       "commands": [
         "fable"
       ]
     },
     "femto": {
-      "version": "0.12.0",
+      "version": "0.16.0",
       "commands": [
         "femto"
+      ]
+    },
+    "fantomas": {
+      "version": "5.1.0",
+      "commands": [
+        "fantomas"
       ]
     }
   }

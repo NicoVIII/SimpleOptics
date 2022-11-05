@@ -10,47 +10,42 @@ module Config =
     let packPath = "./pack"
 
 module Task =
-    let restore () =
-        job {
-            DotNet.toolRestore ()
-            DotNet.restore Config.project
-            DotNet.restore Config.testProject
-        }
+    let restore () = job {
+        DotNet.toolRestore ()
+        DotNet.restore Config.project
+        DotNet.restore Config.testProject
+    }
 
-    let femto () =
-        job {
-            dotnet [ "femto"
-                     "--resolve"
-                     Config.testProject ]
-        }
+    let femto () = job { dotnet [ "femto"; "--resolve"; Config.testProject ] }
 
-    let build () =
-        job {
-            DotNet.build Config.project Debug
-            DotNet.build Config.testProject Debug
+    let build () = job {
+        DotNet.build Config.project Debug
+        DotNet.build Config.testProject Debug
 
-            // Build stuff in fable
-            dotnet [ "fable"
-                     Config.project
-                     "-o"
-                     (Path.GetDirectoryName(Config.project) + "/dist") ]
+        // Build stuff in fable
+        dotnet [
+            "fable"
+            Config.project
+            "-o"
+            (Path.GetDirectoryName(Config.project) + "/dist")
+        ]
 
-            dotnet [ "fable"
-                     Config.testProject
-                     "-e"
-                     ".test.js"
-                     "-o"
-                     (Path.GetDirectoryName(Config.testProject)
-                      + "/dist") ]
-        }
+        dotnet [
+            "fable"
+            Config.testProject
+            "-e"
+            ".test.js"
+            "-o"
+            (Path.GetDirectoryName(Config.testProject) + "/dist")
+        ]
+    }
 
-    let test () =
-        job {
-            DotNet.run Config.testProject
+    let test () = job {
+        DotNet.run Config.testProject
 
-            // Run fable tests
-            pnpm [ "run"; "test" ]
-        }
+        // Run fable tests
+        pnpm [ "run"; "test" ]
+    }
 
     let pack version =
         DotNet.pack Config.packPath Config.project version
@@ -61,27 +56,22 @@ let main args =
     |> List.ofArray
     |> function
         | [ "restore" ] -> Task.restore ()
-        | [ "build" ] ->
-            job {
-                Task.restore ()
-                Task.femto ()
-                Task.build ()
-            }
+        | [ "build" ] -> job {
+            Task.restore ()
+            Task.femto ()
+            Task.build ()
+          }
         | []
-        | [ "test" ]
-        | [ "tests" ] ->
-            job {
-                Task.restore ()
-                Task.femto ()
-                Task.build ()
-                Task.test ()
-            }
-        | [ "pack"; version ] ->
-            job {
-                Task.restore ()
-                Task.pack version
-            }
-        | _ ->
-            Job.error [ "Usage: dotnet run [<command>]"
-                        "Look up available commands in run.fs" ]
+          | [ "test" ]
+          | [ "tests" ] -> job {
+              Task.restore ()
+              Task.femto ()
+              Task.build ()
+              Task.test ()
+          }
+        | [ "pack"; version ] -> job {
+            Task.restore ()
+            Task.pack version
+          }
+        | _ -> Job.error [ "Usage: dotnet run [<command>]"; "Look up available commands in run.fs" ]
     |> Job.execute
