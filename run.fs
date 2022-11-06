@@ -14,6 +14,8 @@ module Task =
         DotNet.toolRestore ()
         DotNet.restore Config.project
         DotNet.restore Config.testProject
+
+        Pnpm.install ()
     }
 
     let femto () = job { dotnet [ "femto"; "--validate"; Config.testProject ] }
