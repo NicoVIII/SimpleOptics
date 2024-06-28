@@ -1,5 +1,4 @@
 {
     "files.trimFinalNewlines": true,
-    "editor.formatOnSave": true,
-    "FSharp.workspacePath": "SimpleOptics.sln",
+    "editor.formatOnSave": true
 }
