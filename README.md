@@ -70,6 +70,26 @@ Lens((fun address -> address.city), (fun address city' -> { address with city = 
 Prism((fun user -> user.firstName), (fun user firstName' -> { user with firstName = Some firstName' }))
 ```
 
+Since F# 8 you can use the short form for the getters.
+e.g.
+```fsharp
+// Lens<Address,City>
+Lens(_.city, (fun address city' -> { address with city = city'}))
+
+// Prism<User,FirstName>
+Prism(_.firstName, (fun user firstName' -> { user with firstName = Some firstName' }))
+```
+
+If your properties aren't unique enough for the type inference to grasp the correct types, you can specify them partially.
+e.g.
+```fsharp
+// Lens<Address,City>
+let lens: Lens<Address, _> = Lens(_.city, (fun address city' -> { address with city = city'}))
+
+// Prism<User,FirstName>
+let prism: Prism<User, _> = Prism(_.firstName, (fun user firstName' -> { user with firstName = Some firstName' }))
+```
+
 ### Combine optics
 
 To combine optics you can either use the compose function from the Optic module or use the >-> operator:
