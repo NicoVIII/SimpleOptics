@@ -14,7 +14,7 @@ importers:
         specifier: ^8.3.2
         version: 8.4.0
 
-  tests/dist/fable_modules/fable-library-js.4.19.3: {}
+  tests/dist/fable_modules/fable-library-js.4.25.0: {}
 
 packages:
 

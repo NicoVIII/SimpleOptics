@@ -11,5 +11,5 @@ let main args =
 #if FABLE_COMPILER
     Mocha.runTests tests
 #else
-    runTestsInAssemblyWithCLIArgs [] args
+    runTestsWithCLIArgs [] args tests
 #endif

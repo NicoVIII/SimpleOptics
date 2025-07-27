@@ -32,7 +32,7 @@ module Task =
                 "fable"
                 Config.project
                 "-o"
-                (Path.GetDirectoryName(Config.project) + "/dist")
+                Path.GetDirectoryName(Config.project) + "/dist"
             ]
 
             dotnet [
@@ -41,7 +41,7 @@ module Task =
                 "-e"
                 ".test.js"
                 "-o"
-                (Path.GetDirectoryName(Config.testProject) + "/dist")
+                Path.GetDirectoryName(Config.testProject) + "/dist"
             ]
         }
 
