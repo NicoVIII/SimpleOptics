@@ -20,6 +20,7 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         dotnet: [8.0.403]
+        pnpm: [10.13.1]
     runs-on: ${{ matrix.os }}
 
     steps:
@@ -31,8 +32,8 @@ jobs:
         with:
           dotnet-version: ${{ matrix.dotnet }}
       - name: Setup pnpm
-        uses: pnpm/action-setup@v2.0.1
+        uses: pnpm/action-setup@v2
         with:
-          version: 9.4.0
+          version: ${{ matrix.pnpm }}
       - name: Run test
         run: dotnet run test

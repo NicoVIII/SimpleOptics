@@ -11,6 +11,7 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         dotnet: [8.0.403]
+        pnpm: [10.13.1]
     runs-on: ${{ matrix.os }}
 
     steps:
@@ -20,16 +21,20 @@ jobs:
           echo ::set-output name=current_version::${GITHUB_REF#refs/tags/v}
         shell: bash
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Setup .NET Core
-        uses: actions/setup-dotnet@v1
+        uses: actions/setup-dotnet@v4
         with:
           dotnet-version: ${{ matrix.dotnet }}
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: ${{ matrix.pnpm }}
       - name: Pack
         run: dotnet run pack ${{ steps.tag_name.outputs.current_version }}
       - name: Get Changelog Entry
         id: changelog_reader
-        uses: mindsers/changelog-reader-action@v2.0.0
+        uses: mindsers/changelog-reader-action@v2
         with:
           version: ${{ steps.tag_name.outputs.current_version }}
       - name: Create Release
