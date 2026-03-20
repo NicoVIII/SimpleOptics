@@ -19,9 +19,6 @@ module Task =
             Pnpm.install ()
         }
 
-    let femto () =
-        job { dotnet [ "femto"; "--validate"; Config.testProject ] }
-
     let build () =
         job {
             DotNet.build Config.project Debug
@@ -65,7 +62,6 @@ let main args =
         | [ "build" ] ->
             job {
                 Task.restore ()
-                Task.femto ()
                 Task.build ()
             }
         | []
@@ -73,7 +69,6 @@ let main args =
         | [ "tests" ] ->
             job {
                 Task.restore ()
-                Task.femto ()
                 Task.build ()
                 Task.test ()
             }
