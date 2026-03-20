@@ -22,8 +22,8 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        dotnet: [8.0.403]
-        pnpm: [10.13.1]
+        dotnet: [10.0.201]
+        pnpm: [10.32.1]
     runs-on: ${{ matrix.os }}
 
     steps:

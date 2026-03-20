@@ -1,6 +1,6 @@
 {
     "name": "F# (.NET)",
-    "image": "mcr.microsoft.com/devcontainers/dotnet:1-8.0",
+    "image": "mcr.microsoft.com/devcontainers/dotnet:1-10.0-noble",
     "features": {
         "ghcr.io/devcontainers/features/node": {
             "version": "lts"
