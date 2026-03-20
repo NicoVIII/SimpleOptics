@@ -14,7 +14,8 @@
             "extensions": [
                 "editorconfig.editorconfig",
                 "ms-dotnettools.csharp",
-                "Ionide.Ionide-fsharp"
+                "Ionide.Ionide-fsharp",
+                "timheuer.nupkg-viewer"
             ],
             "settings": {
                 "FSharp.dotnetRoot": "/usr/bin"
