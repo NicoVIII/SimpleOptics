@@ -18,14 +18,14 @@ updates:
   directory: "/"
   schedule:
     interval: weekly
-- package-ecosysten: "nuget"
+- package-ecosystem: "nuget"
   directory: "/"
   schedule:
     interval: weekly
   exclude-paths:
     - "src/**"
 - package-ecosystem: "nuget"
-  directory: "src/"
+  directory: "/src"
   schedule:
     interval: weekly
   ignore:
