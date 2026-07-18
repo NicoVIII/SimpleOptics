@@ -30,7 +30,7 @@ jobs:
         with:
           dotnet-version: ${{ matrix.dotnet }}
       - name: Setup pnpm
-        uses: pnpm/action-setup@v5
+        uses: pnpm/action-setup@v6
         with:
           version: ${{ matrix.pnpm }}
       - name: Pack
